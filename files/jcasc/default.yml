@@ -1,0 +1,33 @@
+jenkins:
+  disableRememberMe: false
+
+  crumbIssuer:
+    standard:
+      excludeClientIPFromCrumb: false
+
+  authorizationStrategy:
+    loggedInUsersCanDoAnything:
+      allowAnonymousRead: false
+
+  securityRealm:
+    local:
+      allowsSignup: false
+      enableCaptcha: false
+      users:
+        - id: "admin"
+          password: ${JENKINS_ADMIN_PASSWORD}
+
+  remotingSecurity:
+    enabled: true
+
+  agentProtocols:
+    - "JNLP4-connect"
+    - "Ping"
+
+security:
+  remotingCLI:
+    enabled: false
+
+unclassified:
+  location:
+    url: ${JENKINS_LOCATION_URL}

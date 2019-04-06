@@ -1,0 +1,19 @@
+version: '3.7'
+
+services:
+
+  jenkins:
+    container_name: jenkins
+    image: jenkins:1.0
+    ports:
+      - "8080:8080"
+      - "50000:50000"
+    volumes:
+      - jenkins_home:/var/jenkins_home
+    environment:
+      JENKINS_ADMIN_PASSWORD: admin
+      JENKINS_LOCATION_URL: http://jenkins.local:8080
+
+volumes:
+  jenkins_home:
+    external: true
