@@ -1,0 +1,10 @@
+version: '3.7'
+
+services:
+
+  jenkins_slave:
+    container_name: jenkins-slave
+    image: jenkins-slave:1.0
+    environment:
+      JENKINS_MASTER_NODE_URL: http://jenkins.local:8080
+      JENKINS_SLAVE_NODE_LABELS: slave
