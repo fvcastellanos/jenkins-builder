@@ -1,14 +1,13 @@
-FROM ubuntu:18.04
+FROM ubuntu:24.04
 
-ENV JENKINS_MASTER_NODE_URL http://jenkins.local
-ENV JENKINS_MASTER_NODE_USERNAME admin
-ENV JENKINS_MASTER_NODE_PASSWORD admin
-ENV JENKINS_SLAVE_NODE_ADDRESS ''
-ENV JENKINS_SLAVE_NODE_NAME ''
-ENV JENKINS_SLAVE_NODE_EXECUTORS 1
-ENV JENKINS_SLAVE_NODE_ADDRESS ''
-ENV JENKINS_SLAVE_NODE_SECRET ''
-ENV JENKINS_SLAVE_NODE_LABELS ''
+ENV JENKINS_MASTER_NODE_URL="http://jenkins.local"
+ENV JENKINS_MASTER_NODE_USERNAME="admin"
+ENV JENKINS_MASTER_NODE_PASSWORD="admin"
+ENV JENKINS_SLAVE_NODE_ADDRESS=""
+ENV JENKINS_SLAVE_NODE_NAME=""
+ENV JENKINS_SLAVE_NODE_EXECUTORS=1
+ENV JENKINS_SLAVE_NODE_SECRET=""
+ENV JENKINS_SLAVE_NODE_LABELS=""  
 
 RUN apt-get update && apt-get install -y \
       apt-transport-https \
@@ -23,7 +22,7 @@ RUN apt-get update && apt-get install -y \
       iproute2 \
       vim \
       curl \
-      openjdk-8-jdk \
+      openjdk-21-jdk \
       python3 \
       python3-setuptools \
       python3-pip \

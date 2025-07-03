@@ -1,4 +1,4 @@
-FROM jenkins/jenkins:lts
+FROM jenkins/jenkins:jdk21
 
 USER root
 
@@ -11,10 +11,10 @@ RUN apt-get update -y \
 
 USER jenkins
 
-ENV JAVA_OPTS "-Djenkins.install.runSetupWizard=false -Djava.awt.headless=true"
-ENV JENKINS_HOME /var/jenkins_home
-ENV CASC_JENKINS_CONFIG ${JENKINS_HOME}/casc_configs
-ENV JENKINS_LOCATION_URL http://jenkins.local:8080
+ENV JAVA_OPTS="-Djenkins.install.runSetupWizard=false -Djava.awt.headless=true"
+ENV JENKINS_HOME="/var/jenkins_home"
+ENV CASC_JENKINS_CONFIG="${JENKINS_HOME}/casc_configs"
+ENV JENKINS_LOCATION_URL="http://jenkins.local:8080"
 
 RUN mkdir -p ${JENKINS_HOME} ${CASC_JENKINS_CONFIG}/default
 
